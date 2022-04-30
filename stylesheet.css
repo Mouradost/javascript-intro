@@ -1,0 +1,47 @@
+.page_title {
+  background-color: rgb(60, 96, 119);
+  color: #949393;
+  position: relative;
+  text-align: center;
+}
+
+p {
+  position: relative;
+  text-align: center;
+  top: 450px;
+}
+
+body {
+  background-color: rgb(100, 100, 100);
+  padding: 0px;
+  margin: 0px;
+}
+
+button {
+  height: 50px;
+  width: 100px;
+  color: rgb(100, 100, 100);
+  border: none;
+  border-radius: 20%;
+  background: rgb(177, 177, 177);
+  margin: 10%;
+  padding: 0%;
+  font-size: 18px;
+  text-align: center;
+  box-shadow: -10px -10px 15px rgba(155, 155, 155, 0.5),
+    -10px -10px 15px rgba(24, 24, 24, 0.7);
+  position: absolute;
+  top: 500px;
+  left: 50px;
+}
+
+button:hover {
+  background: rgb(0, 0, 0);
+  background: transparent;
+  background-color: rgb(30, 38, 44);
+  color: antiquewhite;
+  border-radius: 50%;
+  transform: scale(1.2);
+  box-shadow: 0 5px 50px 0 #3a3947 inset, 0 5px 50px 0 #4e5050,
+    0 5px 50px 0 #3e3f68 inset, 0 5px 50px 0 #333333;
+}
