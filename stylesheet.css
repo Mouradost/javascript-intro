@@ -1,3 +1,9 @@
+body {
+  background-color: rgb(100, 100, 100);
+  padding: 0px;
+  margin: 0px;
+}
+
 .page_title {
   background-color: rgb(60, 96, 119);
   color: #949393;
@@ -5,16 +11,13 @@
   text-align: center;
 }
 
-p {
-  position: relative;
-  text-align: center;
-  top: 450px;
-}
-
-body {
-  background-color: rgb(100, 100, 100);
-  padding: 0px;
+#canvasContainer {
   margin: 0px;
+  height: 70%;
+  width: 80%;
+  top: 10%;
+  left: 10%;
+  position: absolute;
 }
 
 button {
@@ -31,8 +34,8 @@ button {
   box-shadow: -10px -10px 15px rgba(155, 155, 155, 0.5),
     -10px -10px 15px rgba(24, 24, 24, 0.7);
   position: absolute;
-  top: 500px;
-  left: 50px;
+  top: 75%;
+  left: 35%;
 }
 
 button:hover {
