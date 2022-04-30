@@ -1,33 +1,45 @@
 var actors = [];
+var sketchWidth;
+var sketchHeight;
+let button;
 
 function setup() {
-  createCanvas(windowWidth-5, windowHeight-5);
+  sketchWidth = document.getElementById("canvasContainer").offsetWidth;
+  sketchHeight = document.getElementById("canvasContainer").offsetHeight;
+  var canvas = createCanvas(sketchWidth, sketchHeight);
+  canvas.parent("canvasContainer");
   frameRate(30);
-  createActors(nb=100, r=1);
+  start();
+  button = createButton('submit');
+  button.mousePressed(start);
 }
 
 function draw() {
-  background(100, 100, 100, 255);
-  actors.forEach(takeAction);
+  background(10, 100, 100, 255);
+  actors.forEach(actor => {
+    // actor.move(velocity = 10);
+    actor.grow(size=5);
+    actor.show();
+  });
+}
+
+function start() {
+  actors = [];
+  createActors(nb = 100, r = 1);
 }
 
 function windowResized() {
-  resizeCanvas(windowWidth-5, windowHeight-5);
+  sketchWidth = document.getElementById("canvasContainer").offsetWidth;
+  sketchHeight = document.getElementById("canvasContainer").offsetHeight;
+  resizeCanvas(sketchWidth, sketchHeight);
 }
 
 function createActors(nb, r) {
   for (let i = 1; i < nb + 1; i++) {
-    let x = random((height/8), (height/1.5));
-    let y = random((width/8), (width/1.5));
+    let x = random((sketchWidth/8), (sketchWidth/1.5));
+    let y = random((sketchHeight/8), (sketchHeight/1.5));
     actors.push(new Actor(x, y, r));
   }
-}
-
-function takeAction(item, index) {
-    // console.log("Moving actor " + index + 1)
-    // item.move(velocity=10);
-    item.grow(size=5);
-    item.show();
 }
 
 class Actor {
@@ -56,9 +68,9 @@ class Actor {
   isOut(offsetX, offsetY) {
     return (
       (this.x - offsetX) - this.r < 0
-      || (this.x + offsetX) + this.r > width
+      || (this.x + offsetX) + this.r > sketchWidth
       || (this.y - offsetY) - this.r < 0
-      || (this.y + offsetY) + this.r > height
+      || (this.y + offsetY) + this.r > sketchHeight
     )
   }
 
