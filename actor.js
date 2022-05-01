@@ -19,7 +19,6 @@ class Actor {
     if (!this.isOut(size, size)) {
       this.r += size;
     }
-    
   }
 
   isOut(offsetX, offsetY) {
@@ -36,11 +35,13 @@ class Actor {
   }
 
   show() {
-    // stroke(this.strokeColor);
-    // strokeWeight(5);
     noStroke();
     fill(this.color);
+
+    // stroke(this.strokeColor);
+    // strokeWeight(5);
     // noFill();
+    
     ellipse(this.x, this.y, this.r*2, this.r*2);
   }
 }
