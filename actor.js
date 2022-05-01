@@ -10,7 +10,7 @@ class Actor {
     acceleration
   ) {
     this.pos = createVector(x, y);
-    this.r = r || 10;
+    this.r = r;
     this.velocity = velocity;
     this.acc = acceleration;
     this.name = "Actor " + index;
