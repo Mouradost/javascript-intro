@@ -1,37 +1,60 @@
 class Actor {
-  constructor(x, y, r, index) {
-    this.x = x;
-    this.y = y;
-    this.r = r;
+  constructor(
+    x, 
+    y, 
+    r, 
+    index, 
+    color, 
+    strokeColor,
+    velocity,
+    acceleration
+  ) {
+    this.pos = createVector(x, y);
+    this.r = r || 10;
+    this.velocity = velocity;
+    this.acc = acceleration;
     this.name = "Actor " + index;
-    this.strokeColor = color(59, 19, 168);
-    this.color = color(59, 19, 168, 200);
+    this.strokeColor = color;
+    this.color = strokeColor;
   }
 
-  move(velocity) {
-    if (!this.isOut(velocity, velocity)) {
-      this.x += (1 * velocity);
-      this.y += (1 * velocity);
-    }
+  move(boundary) {
+    this.wallCollide(boundary);
+    this.velocity.add(this.acc);
+    this.pos.add(this.velocity);
+    this.acc = createVector();
   }
 
-  grow(size) {
+  grow(size=1) {
     if (!this.isOut(size, size)) {
       this.r += size;
     }
   }
 
-  isOut(offsetX, offsetY) {
+  isOut(boundary) {
     return (
-      (this.x - offsetX) - this.r < 0
-      || (this.x + offsetX) + this.r > sketchWidth
-      || (this.y - offsetY) - this.r < 0
-      || (this.y + offsetY) + this.r > sketchHeight
+      (this.pos.x - this.velocity.x) - this.r < 0
+      || (this.pos.x + this.velocity.x) + this.r > boundary.width
+      || (this.pos.y - this.velocity.y) - this.r < 0
+      || (this.pos.y + this.velocity.y) + this.r > boundary.height
     )
   }
 
-  isOverlapping(x, y, r) {
-    return (dist(this.x, this.y, x, y) < (r + this.r))
+  wallCollide(boundary) {
+    if (this.pos.x - this.r <= 0 || this.pos.x + this.r >= boundary.width) {
+      this.velocity.x *= -1;
+    }
+    if (this.pos.y - this.r <= 0 || this.pos.y + this.r >= boundary.height) {
+      this.velocity.y *= -1;
+    }
+  }
+
+  isOverlapping(actor) {
+    return (dist(this.pos.x, this.pos.y, actor.pos.x, actor.pos.y) < (actor.r + this.r))
+  }
+
+  applyForce(force) {
+    this.acc.add(force);
   }
 
   show() {
@@ -42,6 +65,6 @@ class Actor {
     // strokeWeight(5);
     // noFill();
     
-    ellipse(this.x, this.y, this.r*2, this.r*2);
+    ellipse(this.pos.x, this.pos.y, this.r*2, this.r*2);
   }
 }
