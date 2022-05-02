@@ -23,29 +23,23 @@ function draw() {
   background(94, 94, 94);
   actors.forEach(actor => {
     // Take action
-    // actor.velocity = createVector(5, 5);
-    actor.applyForce(p5.Vector.random2D().limit(0.5))
-    actor.move(boundary);
 
-    // actor.grow(size=5);
+    // Gravity
+    actor.applyForce(new Force(0, 0.2, "gravity").mult(actor.mass))
+
+    // Wind
+    actor.applyForce(createVector(0.2, -0.5))
+
+    actor.move();
+    actor.update(boundary);
     actor.show();
-
-    // Check collision
-    // actors.forEach(otherActor => {
-    //   if (actor.name != otherActor.name){
-    //     if (actor.isOverlapping(otherActor)) {
-    //       actor.strokeColor = color(0, 0, 0);
-    //       actor.color = color(59, 19, 168, 20);
-    //     }
-    //   }
-    // })
 
   });
 }
 
 function start() {
   actors.splice(0, actors.length);
-  createActors(nb = 10, r = 20);
+  createActors(nb = 5);
 }
 
 function windowResized() {
@@ -56,20 +50,16 @@ function windowResized() {
   resizeCanvas(boundary.width, boundary.height);
 }
 
-function createActors(nb, r) {
+function createActors(nb) {
   for (let i = 1; i < nb + 1; i++) {
     let x = random((boundary.width/8), (boundary.width/1.5));
     let y = random((boundary.height/8), (boundary.height/1.5));
     actors.push(
       new Actor(
-        x,
-        y,
-        r,
-        i,
-        color(59, 19, 168, 200),
-        color(59, 19, 168, 255),
-        p5.Vector.random2D().limit(1),
-        createVector(0, 0)
+        x=x,
+        y=y,
+        r=random(10, 40),
+        index = i
       ));
   }
 }
