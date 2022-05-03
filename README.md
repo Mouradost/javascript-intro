@@ -1,4 +1,4 @@
-# javascript-intro
+# My javascript leaning journey
 
 🧨🧨🧨This is my learning process with javascript (js) 🧨🧨🧨.
 
