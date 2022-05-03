@@ -1,8 +1,8 @@
 # javascript-intro
 
-🧨🧨🧨This is me learning javascript (js) 🧨🧨🧨.
+🧨🧨🧨This is my learning process with javascript (js) 🧨🧨🧨.
 
-You can try out what I have acheived [here](https://mouradost.github.io/javascript-intro/), and can find the source code 
-[here](https://github.com/Mouradost/javascript-intro).
+- [Collision](intro/index.html)
+- [Solar system](solarSystem/index.html)
 
 Have fun !
