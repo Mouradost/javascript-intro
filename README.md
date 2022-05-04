@@ -1,4 +1,4 @@
-# My javascript learning journey
+# Javascript learning journey
 
 🧨🧨🧨This is my learning process with javascript (js) 🧨🧨🧨.
 
@@ -14,17 +14,25 @@ This system is the base for all the following implementations.
 
 The solar system is available [here](solarSystem/index.html).
 
-The system makes use of Newton's laws to simulate a solar system with orbiting planets.
+The system uses Newton's laws to simulate a solar system with orbiting planets.
+
 The formulas used in this implementation are as follows:
 
 1. Law of motion:
 $$ F = m * a $$
 2. Law of gravity:
-$$ F_{G} = \fract{G (m_{1} m_{2})}{r^{2}} $$
+$$ F_{G} = \frac{G (m_{1} m_{2})}{r^{2}} $$
+
+## Plotly live data
+
+The Plotly example is available [here](charts/index.html).
+
+It is randomly generated data that is plotted every 1s, the plot is dynamically formatted so that it moves with the new coming data.
 
 ## Indexes
 
 - [Collision System](collisions/index.html)
 - [Solar System](solarSystem/index.html)
+- [Plotly live data](charts/index.html)
 
 **Have fun!**
