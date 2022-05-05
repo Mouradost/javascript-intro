@@ -29,10 +29,17 @@ The Plotly example is available [here](charts/index.html).
 
 It is randomly generated data that is plotted every 1s, the plot is dynamically formatted so that it moves with the new coming data.
 
+## Python instead of JavaScript ?
+
+The new PyScript is in it's alpha stage, I'm just trying out how it looks like.
+
+You can find my demo [here](pythonScript/index.html).
+
 ## Indexes
 
 - [Collision System](collisions/index.html)
 - [Solar System](solarSystem/index.html)
 - [Plotly live data](charts/index.html)
+- [PyScript](pythonScript/index.html)
 
 **Have fun!**

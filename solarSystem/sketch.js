@@ -4,7 +4,7 @@ var planets = []
 const G = 100
 
 function setup() {
-    createCanvas(windowWidth, windowHeight)
+    createCanvas(window.innerWidth, window.innerHeight)
     frameRate(30)
     sun = new Body(
         createVector(),
@@ -26,7 +26,7 @@ function draw() {
 }
 
 function windowResized() {
-    resizeCanvas(windowWidth, windowHeight);
+    resizeCanvas(window.innerWidth, window.innerHeight);
 }
 
 
