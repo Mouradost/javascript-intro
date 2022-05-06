@@ -11,8 +11,10 @@
         <py-env>
             - numpy
             - matplotlib
+            - pandas
             - paths:
                 - ./test.py
+                - ./dummyData.py
         </py-env>
     </head>
 
@@ -48,7 +50,7 @@ fig.tight_layout()
 fig
         </py-script>
 
-        <h2>Calling a python file</h2>
+        <h2>Importing a local python file</h2>
         <py-script>
 from test import generateRandomData
 
@@ -56,5 +58,12 @@ xs = generateRandomData(n=5)
 for i, x in enumerate(xs):
     print(f"x at position {i} = {x:.2f}")
         </py-script>
+
+        <h2>Running directly a local python file</h2>
+        <py-script src="./dummyData.py"></py-script>
+
+        <h2>Interactive Python REPL</h2>
+        <py-repl id="interactive-python" auto-generated="true"></py-repl>
+    </body>
     </body>
 </html>
